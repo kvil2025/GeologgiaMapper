@@ -1921,8 +1921,8 @@ export default function App() {
             style={{ background: 'none', border: 'none', color: showSidebar ? '#D4AF37' : '#8E8E93', fontSize: 20, cursor: 'pointer' }}>
             ☰
           </button>
-          <span style={{ fontWeight: 700, fontSize: 16, letterSpacing: '0.05em', fontFamily: 'Inter, sans-serif' }}>
-            Geo<span style={{ color: '#B91C1C' }}>IN</span>ducta
+          <span style={{ fontWeight: 700, fontSize: 15, letterSpacing: '0.03em', fontFamily: 'Inter, sans-serif' }}>
+            Geologgia<span style={{ color: '#EF4444' }}>_</span>mapper
           </span>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
