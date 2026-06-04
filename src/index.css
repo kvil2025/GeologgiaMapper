@@ -1,0 +1,198 @@
+/* =========================================
+   GeoINducta — Design System
+   Inspirado en la UI de SMASH (geológico)
+   ========================================= */
+
+:root {
+  --color-primary:   #B91C1C;
+  --color-primary-glow: rgba(185, 28, 28, 0.35);
+  --color-accent:    #D4AF37;
+  --color-accent-dim: rgba(212, 175, 55, 0.3);
+  --color-bg:        #0A0A0B;
+  --color-surface:   #1E1E20;
+  --color-surface-2: #161618;
+  --color-surface-3: #111113;
+  --color-border:    rgba(212, 175, 55, 0.2);
+  --color-text:      #FFFFFF;
+  --color-muted:     #8E8E93;
+  --color-success:   #22C55E;
+  --color-warning:   #F59E0B;
+  --font-main: 'Inter', system-ui, sans-serif;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 24px;
+  --shadow-glow: 0 0 20px rgba(185, 28, 28, 0.2);
+  --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: var(--font-main);
+  background: var(--color-bg);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Scrollbars ── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--color-surface); }
+::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 4px; }
+
+/* ── Leaflet overrides ── */
+.leaflet-container {
+  background: #1a1a2e;
+  font-family: var(--font-main);
+}
+.leaflet-control-zoom a {
+  background: var(--color-surface) !important;
+  color: var(--color-text) !important;
+  border-color: var(--color-border) !important;
+}
+.leaflet-control-zoom a:hover {
+  background: var(--color-surface-2) !important;
+}
+.leaflet-popup-content-wrapper {
+  background: var(--color-surface) !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: var(--radius-md) !important;
+  color: var(--color-text) !important;
+}
+.leaflet-popup-tip {
+  background: var(--color-surface) !important;
+}
+
+/* ── Utility classes ── */
+.glass {
+  background: rgba(10, 10, 11, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--color-border);
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+  border: 1.5px solid var(--color-accent);
+  border-radius: var(--radius-md);
+  padding: 14px 24px;
+  font-family: var(--font-main);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 4px 15px var(--color-primary-glow);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-primary:hover {
+  background: #991b1b;
+  box-shadow: 0 6px 20px var(--color-primary-glow);
+  transform: translateY(-1px);
+}
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--color-muted);
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  padding: 10px 16px;
+  font-family: var(--font-main);
+  font-size: 14px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.btn-ghost:hover {
+  background: var(--color-surface);
+  color: var(--color-text);
+  border-color: var(--color-border);
+}
+
+/* ── Tag chip ── */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: 99px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.chip-red { background: var(--color-primary-glow); color: var(--color-primary); border: 1px solid var(--color-primary); }
+.chip-gold { background: rgba(212,175,55,0.15); color: var(--color-accent); border: 1px solid var(--color-accent-dim); }
+.chip-green { background: rgba(34,197,94,0.15); color: var(--color-success); border: 1px solid rgba(34,197,94,0.3); }
+
+/* ── Input ── */
+.input-field {
+  width: 100%;
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-accent-dim);
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  font-family: var(--font-main);
+  font-size: 15px;
+  padding: 12px 16px;
+  outline: none;
+  transition: var(--transition);
+}
+.input-field::placeholder { color: var(--color-muted); }
+.input-field:focus { border-color: var(--color-accent); box-shadow: 0 0 0 3px var(--color-accent-dim); }
+
+/* ── Label ── */
+.field-label {
+  color: var(--color-muted);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  display: block;
+}
+
+/* ── Divider ── */
+.divider {
+  height: 1px;
+  background: rgba(255,255,255,0.08);
+  margin: 16px 0;
+}
+
+/* ── Animations ── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0); }
+}
+@keyframes pulse-red {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(185,28,28,0.5); }
+  50%       { box-shadow: 0 0 0 8px rgba(185,28,28,0); }
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.fade-in { animation: fadeIn 0.3s ease forwards; }
+.slide-up { animation: slideUp 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+.pulse-red { animation: pulse-red 1.5s infinite; }
+.spin { animation: spin 1s linear infinite; }
